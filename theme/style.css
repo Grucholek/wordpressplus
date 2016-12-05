@@ -1,0 +1,23 @@
+/*
+Theme Name: Antypraca
+Theme URI: http://antyweb.pl
+Author: Kamil Gruszka
+Author URI: http://ably.pl/
+Description: Szablon dedykowany dla firmy Antyweb
+Version: 1.0
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: antypraca
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+.sidebar-nav-fixed {
+	width:220px;
+}
+
+.container
+{
+	margin-left: 20%;
+	max-width: 1050px;
+}
