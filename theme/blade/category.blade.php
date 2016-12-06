@@ -6,7 +6,8 @@
   <meta name="description" content="">
   <meta name="keyword" content="">
 @section('styles')
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:8000/wp-content\themes\ably\css\style.css">
   @action(wp_enqueue_style( 'style-name', get_stylesheet_uri()))
 @show
 
@@ -14,30 +15,28 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+<div class="tabs is-centered is-medium">
+  <ul>
         <li>@action(wp_nav_menu(array('items_wrap' => '%3$s')))</li>
-    </div>
-  </div>
-</nav>
+  </ul>
+</div>
+
 @extends('theme::sidebar')
 
-<div class="container">
-  <div class="jumbotron">
-
+<div style="margin-left: 400px;" class="container">
 
 <?php
 $cat = $_GET["cat"]; 
 query_posts("cat=$cat");
 if ( have_posts()) : while ( have_posts() ) : the_post();
 $pl = get_permalink($id);
-echo "<a href=$pl><p>"; the_title(); echo "</p>";
+echo "<h2 class='title is-2'><a href=$pl><p>"; the_title(); echo "</p></h2>";
 endwhile; endif; 
 ?>
 <a href="<?php echo get_permalink($id); ?>" title="<?php the_title_attribute(array('post'=>$id)); ?>">
     </div>
+</div>
+
 </div>
 
 @action('wp_footer')
