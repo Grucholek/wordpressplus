@@ -2945,6 +2945,245 @@ a.box:active {
   margin-right: -8px;
 }
 
+#simple-safe {
+  margin-top: 200px;
+  margin-left: 180px;
+  color: white;
+}
+
+#simple-big {
+  font-size: 50px;
+}
+
+#with {
+  font-size: 18px;
+}
+
+#iphone {
+  background: url("/wp-content/themes/ably/images/iphone_7_top.png") no-repeat;
+  height: 821px;
+  width: 479px;
+  float: right;
+  margin-top: -110px;
+  margin-right: 220px;
+}
+
+.s-button {
+  background: url("/wp-content/themes/ably/images/button.png") no-repeat;
+  width: 284px;
+  height: 116px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+#easy-messaging {
+  margin-top: 150px;
+  margin-right: 250px;
+  width: 100%;
+}
+
+#messages {
+  background: url("/wp-content/themes/ably/images/messages_first.png") no-repeat;
+  height: 700px;
+  width: 557px;
+  float: left;
+  margin-left: 100px;
+}
+
+.clear {
+  clear: both;
+}
+
+#top-right-text {
+  float: right;
+  width: 400px;
+  margin-right: 100px;
+  margin-top: 200px;
+}
+
+#keep-in-touch {
+  margin-top: 50px;
+  margin-right: 250px;
+  width: 100%;
+}
+
+#top-left-text {
+  float: left;
+  width: 400px;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+
+#messages-2 {
+  background: url("/wp-content/themes/ably/images/messages_second.png") no-repeat;
+  height: 678px;
+  width: 525px;
+  float: right;
+  margin-right: 100px;
+}
+
+.title {
+  font-size: 50px;
+}
+
+hr {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 1px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#what-people-say {
+  margin-bottom: 140px;
+}
+
+.author-img-1 {
+  float: left;
+  background: url("/wp-content/themes/ably/images/what_people_say_john.png") no-repeat;
+  width: 62px;
+  height: 62px;
+}
+
+.author-name-1 {
+  float: right;
+  margin-top: 10px;
+}
+
+.author {
+  width: 150px;
+}
+
+.msg-box {
+  background: url("/wp-content/themes/ably/images/msg-box.png") no-repeat;
+  margin-bottom: 20px;
+  width: 370px;
+  height: 220px;
+  font-style: italic;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.company {
+  font-weight: bold;
+  color: #E83631;
+}
+
+.m-box {
+  float: left;
+  margin-left: 20px;
+}
+
+.rowe {
+  width: 100%;
+  overflow: hidden;
+}
+
+#box-container {
+  width: 1180px;
+  margin: 0 auto;
+}
+
+.mid-author {
+  background: url("/wp-content/themes/ably/images/what_people_say_other_john.png") no-repeat;
+}
+
+.mid-box {
+  margin-bottom: 50px !important;
+  margin-top: -30px;
+}
+
+#capabilities {
+  background: url("/wp-content/themes/ably/images/bg.png");
+  background-position: center;
+  width: 100%;
+  height: 690px;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.s-box {
+  width: 280px;
+  color: #fff;
+  padding-top: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.s-title {
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+  width: 200px;
+}
+
+.s-content {
+  float: left;
+  width: 200px;
+}
+
+.s-img {
+  height: 49px;
+  width: 70px;
+  float: right;
+}
+
+.s-message {
+  background: url("/wp-content/themes/ably/images/icon_message.png") no-repeat;
+}
+
+.s-phone {
+  background: url("/wp-content/themes/ably/images/icon_phone.png") no-repeat;
+}
+
+.s-camera {
+  background: url("/wp-content/themes/ably/images/icon_camera.png") no-repeat;
+}
+
+.s-camera_2 {
+  background: url("/wp-content/themes/ably/images/icon_camera_2.png") no-repeat;
+}
+
+#subscribe {
+  margin-top: 50px;
+  background: url("/wp-content/themes/ably/images/subscribe.png") no-repeat center;
+  with: 596px;
+  height: 104px;
+}
+
+#h-icon {
+  background: url("/wp-content/themes/ably/images/h_icon.png") no-repeat center;
+  height: 214px;
+  width: 214px;
+  margin: 0 auto;
+}
+
+#android {
+  background: url("/wp-content/themes/ably/images/appstore_icon.png") no-repeat center;
+  width: 200px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.border {
+  border: 1px solid #dbdbdb;
+}
+
+.lang {
+  background: url("/wp-content/themes/ably/images/lang.png") no-repeat center;
+  width: 217px;
+  height: 56px;
+}
+
 .card-header {
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
@@ -4667,6 +4906,47 @@ a.panel-block:hover {
 .tabs.is-large.is-boxed a, .tabs.is-large.is-toggle a {
   padding-bottom: 13px;
   padding-top: 13px;
+}
+
+html {
+  margin: 0px !important;
+  padding: 0px !important;
+  background-color: #fff;
+}
+
+body {
+  width: 100%;
+  background: url("/wp-content/themes/ably/images/top_bg.jpg") center 0px no-repeat;
+  background-size: 100%;
+  margin-top: -46px;
+}
+
+.nav {
+  background-color: transparent;
+  border: none;
+}
+
+.content a:not(.button) {
+  border: none;
+}
+
+.nav-item {
+  margin-top: 50px;
+  margin-right: 30px;
+  color: white;
+  font-size: 16px;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.nav-item img {
+  margin-left: 30px;
+}
+
+.content a:not(.button):visited {
+  color: white;
 }
 
 .column {
