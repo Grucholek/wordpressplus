@@ -15,32 +15,23 @@ use Illuminate\Http\Request;
 
 $app->get('/api/post', function(Request $request){
 
-  $id =  $request->input('id');
-  $slug = $request->input('slug');
   $from = $request->input('from');
   $to = $request->input('to');
-  $first_time = "1973-01-01 00:00:00";
 
-  if(isset($id))
-  {
-  	return $results = app('db')->select('select * from wp_posts where id = :id', ['id' => $id]);
-  }
-  elseif(isset($slug))
-  {
-  	return $results = app('db')->select('select * from wp_posts where post_name = :slug', ['slug' => $slug]);
-  }
-  elseif(isset($from) && empty($to))
-  {
-  	return $results = app('db')->select('select * from wp_posts where post_date between :from AND NOW()', ['from' => $from]);
-  }
-  elseif(isset($to) && empty($from))
-  {
-  	return $results = app('db')->select('select * from wp_posts where post_date between :first_time AND :to', ['first_time' => $first_time, 'to' => $to]);
-  }
-  elseif(isset($to) && isset($from))
-  {
-  	return $results = app('db')->select('select * from wp_posts where post_date between :from AND :to', ['from' => $from, 'to' => $to]);
-  }
+  	if(empty($request->input()))
+  	{
+  		$results = app('db')->select('select * from wp_posts');
+  	}
+  	elseif(isset($from) && isset($to))
+  	{
+  		$results = app('db')->select('select * from wp_posts where post_date between :from AND :to', ['from' => $from, 'to' => $to]);
+  	}
+  	else
+  	{
+  		$results = app('db')->select('select * from wp_posts where id = :id OR post_name = :slug OR (post_date between :from AND NOW()) OR (post_date between :first_time AND :to)', ['id' => $request->input('id'), 'slug' => $request->input('slug'), 'from' => $from, 'to' => $to, 'first_time' => '1973-01-01 00:00:00']);
+  	}
+
+  	return $results;
 });
 
 require __DIR__.'/wp-routes.php';
