@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,12 +10,24 @@ use Illuminate\Http\Request;
 | and give it the controller to call when that URI is requested.
 |
 */
+$app->get('/api/posts/{page}', function($page){
+
+$results = app('db')->select("SELECT * FROM wp_posts ORDER by ID ASC LIMIT " . $page); 
+
+return $results;
+});
+
+$app->get('/api/posts', function(){
+
+$results = app('db')->select("SELECT * FROM wp_posts ORDER by ID ASC LIMIT 20"); 
+
+return $results;
+});
+
 
 $app->get('/api/post', function(Request $request){
-
   $from = $request->input('from');
   $to = $request->input('to');
-
   	if(empty($request->input()))
   	{
   		$results = app('db')->select('select * from wp_posts');
@@ -30,7 +40,6 @@ $app->get('/api/post', function(Request $request){
   	{
   		$results = app('db')->select('select * from wp_posts where id = :id OR post_name = :slug OR (post_date between :from AND NOW()) OR (post_date between :first_time AND :to)', ['id' => $request->input('id'), 'slug' => $request->input('slug'), 'from' => $from, 'to' => $to, 'first_time' => '1973-01-01 00:00:00']);
   	}
-
   	return $results;
 });
 
