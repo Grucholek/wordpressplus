@@ -27,16 +27,16 @@ class PostApiTest extends TestCase
 
 	public function testSlug()
 	{
-		$response = $this->call('GET', '/api/post?slug=witaj-swiecie');
+		$data = app('db')->select("select * from wp_posts where post_name='witaj-swiecie'");
 
-		$this->assertContains('"ID":1,', $response->getContent());	
+		$this->visit('/api/post?slug=witaj-swiecie')->see(json_encode($data));
 	}
 
 	public function testId() 
 	{
-		$response = $this->call('GET', '/api/post?id=1');
+		$data = app('db')->select('select * from wp_posts where id = 1');
 
-		$this->assertContains('witaj-swiecie', $response->getContent());
+		$this->visit('/api/post?id=1')->see(json_encode($data));
 	}
 
 	public function testDate()
