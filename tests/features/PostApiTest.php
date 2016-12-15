@@ -27,14 +27,14 @@ class PostApiTest extends TestCase
 
 	public function testSlug()
 	{
-		$data = app('db')->select("select * from wp_posts where post_name='witaj-swiecie'");
+		$data = app('db')->select('select * from wp_posts where id = 1');
 
 		$this->visit('/api/post?slug=witaj-swiecie')->see(json_encode($data));
 	}
 
 	public function testId() 
 	{
-		$data = app('db')->select('select * from wp_posts where id = 1');
+		$data = app('db')->select("select * from wp_posts where post_name='witaj-swiecie'");
 
 		$this->visit('/api/post?id=1')->see(json_encode($data));
 	}
