@@ -43,4 +43,49 @@ $app->get('/api/post', function(Request $request){
   	return $results;
 });
 
+$app->get('/api/delete', function(Request $request){
+  $id = $request->input('id');
+
+  $results = app('db')->delete('delete from wp_posts WHERE ID = :ID', ['ID' => $id]);
+  return $results;
+});
+
+
+$app->get('/api/add', function(Request $request){
+  $title = $request->input('title');
+  $content = $request->input('content');
+  $post_name = $request->input("post_name");
+
+  $results = app('db')->insert("insert into wp_posts (post_content, post_title, post_name) values (:content, :title, :name)", ['content' => $content, 'title' => $title, 'name' => $post_name]);
+});
+
+$app->get('/api/edit', function(Request $request){
+  $id = $request->input('id');
+
+  switch(true){
+    
+  case ($request->input('post_name') && $request->input('title') && $request->input('content') && $id):
+  $results = app('db')->update("update wp_posts set post_title = :post_title, post_name = :post_name, post_content = :post_content where ID = :id", ['post_name' => $request->input('post_name'), 'post_content' => $request->input('content'), 'post_title' => $request->input('title'), 'id' => $id]);  
+
+  break; 
+
+  case ($request->input('content') && $id):
+  $results = app('db')->update("update wp_posts set post_content = :post_content where ID = :id", ['post_content' => $request->input('content'), 'id' => $id]);
+
+  break;
+
+  case ($request->input('title') && $id):
+  $results = app('db')->update("update wp_posts set post_title = :post_title where ID = :id", ['post_title' => $request->input('title'), 'id' => $id]);  
+
+  break;
+
+  case ($request->input('post_name') && $id):
+  $results = app('db')->update("update wp_posts set post_name = :post_name where ID = :id", ['post_name' => $request->input('post_name'), 'id' => $id]);  
+
+  break; 
+  } 
+
+});
+
+
 require __DIR__.'/wp-routes.php';

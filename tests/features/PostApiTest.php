@@ -74,4 +74,34 @@ class PostApiTest extends TestCase
 
 		$this->visit('/api/posts/10')->see(json_encode($data));
 	}
+
+	/** @test **/
+	public function chceck_if_post_is_deleted_successfully() 
+	{
+		$this->visit('/api/delete?id=90')->see('1');
+	}
+
+	/** @test **/
+	public function chceck_if_post_is_added_successfully() 
+	{
+		$this->visit('/api/add?title=testowy-wpis-phpunit&content=tytul-testowy-phpunit&post_name=testowy-post-name-phpunit');
+		$this->seeInDatabase('wp_posts', ['post_name' => 'testowy-post-name-phpunit']);
+	}
+
+	/** @test **/
+	public function chceck_edit() 
+	{
+		$this->visit('/api/edit?id=91&content=test-phpunit&title=test-phpunit&post_name=test-phpunit');
+		$this->seeInDatabase('wp_posts', ['post_name' => 'test-phpunit', 'post_title' => 'test-phpunit', 'post_content' => 'test-phpunit']);
+
+		$this->visit('/api/edit?id=91&content=test-phpunit1');
+		$this->seeInDatabase('wp_posts', ['post_content' => 'test-phpunit1']);
+
+		$this->visit('/api/edit?id=91&title=test-phpunit2');
+		$this->seeInDatabase('wp_posts', ['post_title' => 'test-phpunit2']);
+
+		$this->visit('/api/edit?id=91&post_name=test-phpunit3');
+		$this->seeInDatabase('wp_posts', ['post_name' => 'test-phpunit3']);
+	}
+
 }
